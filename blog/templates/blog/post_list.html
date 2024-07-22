@@ -1,13 +1,133 @@
-{% extends 'blog/base.html' %}
-
-{% block content %}
-    {% for post in posts %}
-        <div class="post">
-            <div class="date">
-                {{ post.published_date }}
-            </div>
-            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-            <p>{{ post.text|linebreaksbr }}</p>
+<!-- venta/templates/venta/index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta de Carnitas y Bebidas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .menu-section {
+            margin-bottom: 2rem;
+        }
+        .menu-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .menu-item .card-body {
+            padding: 1rem;
+        }
+        .menu-item .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        .navbar {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Carnitas y Bebidas</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#carnitas">Carnitas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#bebidas">Bebidas</a>
+                </li>
+            </ul>
         </div>
-    {% endfor %}
-{% endblock %}
+    </nav>
+    <div class="container">
+        <h1 class="text-center my-4">¡Bienvenidos a Carnitas!</h1>
+        <div class="menu-section" id="carnitas">
+            <h2 class="text-center">Carnitas</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="menu-item card shadow-sm">
+                        <img src="https://pbs.twimg.com/media/E_GbIvNWQAkv8Nr.jpg" alt="Tacos de carnitas">
+                        <div class="card-body">
+                            <h5 class="card-title">Puyazo - Q55.00</h5>
+                            <p class="card-text">Delicioso puyazo con chirmol y limón.</p>
+                            <button class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="menu-item card shadow-sm">
+                        <img src="https://cdn.pixabay.com/photo/2017/07/16/12/39/chicken-2509164_1280.jpg" alt="Tortas de carnitas">
+                        <div class="card-body">
+                            <h5 class="card-title">Filete de Pollo - Q35.00</h5>
+                            <p class="card-text">Jugosas pechugas de pollo aguacate y frijoles.</p>
+                            <button class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="menu-item card shadow-sm">
+                        <img src="https://previews.123rf.com/images/naiklon/naiklon2305/naiklon230502485/203952848-carnitas-en-un-plato-liso-redondo-adornado-blanco-sobre-fondo-transparente-aislado-comida-mexicana.jpg" alt="Plato de carnitas">
+                        <div class="card-body">
+                            <h5 class="card-title">Plato de carnitas - Q50.00</h5>
+                            <p class="card-text">Plato completo de carnitas con guarniciones.</p>
+                            <button class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-section" id="bebidas">
+            <h2 class="text-center">Bebidas</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="menu-item card shadow-sm">
+                        <img src="https://www.coca-cola.com/content/dam/onexp/cl/es/brands/coca-cola/General-Card-Coca-Cola-Original.jpg" alt="Coca-Cola">
+                        <div class="card-body">
+                            <h5 class="card-title">Gaseosa Coca Cola - Q10.00</h5>
+                            <p class="card-text">Refrescante agua Gaseosa.</p>
+                            <button class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="menu-item card shadow-sm">
+                        <img src="https://img.freepik.com/fotos-premium/taza-cafe-blanco-granos-cafe-tostados-alrededor_35570-794.jpg" alt="Cafe">
+                        <div class="card-body">
+                            <h5 class="card-title">Cafe - Q15.00</h5>
+                            <p class="card-text">Delicioso cafe tradional para acompañar tus carnitas y que te de diarrea.</p>
+                            <button class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="menu-item card shadow-sm">
+                        <img src="https://www.shutterstock.com/image-photo/glass-roselle-juice-jamaica-sorrel-600nw-2281574235.jpg" alt="Jamaica">
+                        <div class="card-body">
+                            <h5 class="card-title">Jamaica - Q15.00</h5>
+                            <p class="card-text">Jamaica bien fría para acompañar tus platillos.</p>
+                            <button class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4 text-center">
+            <button class="btn btn-success btn-lg" onclick="alert('¡Gracias por tu compra!')"><i class="fas fa-shopping-cart"></i> Comprar</button>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
